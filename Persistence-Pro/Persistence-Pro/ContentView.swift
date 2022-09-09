@@ -9,40 +9,40 @@ import SwiftUI
 import RealityKit
 import ARKit
 
-class Coordinator: NSObject, ARSessionDelegate {
-    
-    var arView: ARView?
-
-    @objc func onTap(_ recognizer: UITapGestureRecognizer) {
-        
-        guard let arView = arView else {
-            return
-        }
-
-        let location = recognizer.location(in: arView)
-        let results = arView.raycast(from: location, allowing: .estimatedPlane, alignment: .horizontal)
-        
-        if let result = results.first {
-            
-            let anchor = AnchorEntity(raycastResult: result)
-            let box = ModelEntity(mesh: MeshResource.generateBox(size: 0.3), materials: [SimpleMaterial(color: .green, isMetallic: true)])
-            anchor.addChild(box)
-            
-            arView.scene.addAnchor(anchor)
-        }
-    }
-}
 
 struct ContentView : View {
     
+    @StateObject private var vm = ViewModel()
+    
     var body: some View {
-        
-        return ARViewContainer().edgesIgnoringSafeArea(.all)
-        
+        VStack {
+            
+            HStack {
+                Text(vm.worldMapStatus.rawValue).font(.largeTitle)
+            }.frame(maxWidth: .infinity, maxHeight: 60).background(.blue)
+            
+            ARViewContainer(vm: vm).edgesIgnoringSafeArea(.all)
+            
+            HStack {
+                Button("SAVE") {
+                    vm.onSave()
+                }.buttonStyle(.borderedProminent)
+                
+                Button("CLEAR") {
+                    vm.onClear()
+                }.buttonStyle(.bordered)
+            }
+        }.alert("ARWorldMap has been saved!", isPresented: $vm.isSaved) {
+            Button(role: .cancel, action: { }) {
+                Text("OK")
+            }
+        }
     }
 }
 
 struct ARViewContainer: UIViewRepresentable {
+    
+    let vm: ViewModel
     
     func makeUIView(context: Context) -> ARView {
         
@@ -51,13 +51,22 @@ struct ARViewContainer: UIViewRepresentable {
         context.coordinator.arView = arView
         arView.session.delegate = context.coordinator
         
+        vm.onSave = {
+            context.coordinator.saveWorldMap()
+        }
+        
+        vm.onClear = {
+            context.coordinator.clearWorldMap()
+        }
+        
+        context.coordinator.loadWordMap()
         return arView
     }
     
     func updateUIView(_ uiView: ARView, context: Context) {}
     
     func makeCoordinator() -> Coordinator {
-        Coordinator()
+        Coordinator(vm: vm)
     }
     
 }

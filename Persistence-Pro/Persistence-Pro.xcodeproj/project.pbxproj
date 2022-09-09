@@ -12,6 +12,8 @@
 		8902AEA128C61FC000FE87D3 /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 8902AEA028C61FC000FE87D3 /* Experience.rcproject */; };
 		8902AEA328C61FC200FE87D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8902AEA228C61FC200FE87D3 /* Assets.xcassets */; };
 		8902AEA628C61FC200FE87D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8902AEA528C61FC200FE87D3 /* Preview Assets.xcassets */; };
+		8902AEAD28C6864100FE87D3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8902AEAC28C6864100FE87D3 /* Coordinator.swift */; };
+		8902AEAF28C686D800FE87D3 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8902AEAE28C686D800FE87D3 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		8902AEA028C61FC000FE87D3 /* Experience.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Experience.rcproject; sourceTree = "<group>"; };
 		8902AEA228C61FC200FE87D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8902AEA528C61FC200FE87D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8902AEAC28C6864100FE87D3 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		8902AEAE28C686D800FE87D3 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,11 +57,13 @@
 		8902AE9B28C61FC000FE87D3 /* Persistence-Pro */ = {
 			isa = PBXGroup;
 			children = (
+				8902AEA428C61FC200FE87D3 /* Preview Content */,
+				8902AEA228C61FC200FE87D3 /* Assets.xcassets */,
+				8902AEA028C61FC000FE87D3 /* Experience.rcproject */,
 				8902AE9C28C61FC000FE87D3 /* AppDelegate.swift */,
 				8902AE9E28C61FC000FE87D3 /* ContentView.swift */,
-				8902AEA028C61FC000FE87D3 /* Experience.rcproject */,
-				8902AEA228C61FC200FE87D3 /* Assets.xcassets */,
-				8902AEA428C61FC200FE87D3 /* Preview Content */,
+				8902AEAC28C6864100FE87D3 /* Coordinator.swift */,
+				8902AEAE28C686D800FE87D3 /* ViewModel.swift */,
 			);
 			path = "Persistence-Pro";
 			sourceTree = "<group>";
@@ -140,6 +146,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8902AEAF28C686D800FE87D3 /* ViewModel.swift in Sources */,
+				8902AEAD28C6864100FE87D3 /* Coordinator.swift in Sources */,
 				8902AE9F28C61FC000FE87D3 /* ContentView.swift in Sources */,
 				8902AE9D28C61FC000FE87D3 /* AppDelegate.swift in Sources */,
 				8902AEA128C61FC000FE87D3 /* Experience.rcproject in Sources */,
