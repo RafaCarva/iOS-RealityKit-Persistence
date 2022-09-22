@@ -60,6 +60,13 @@ struct ARViewContainer: UIViewRepresentable {
         }
         
         context.coordinator.loadWordMap()
+        
+        // Set debug (yellow dots)
+        #if DEBUG
+        // arView.debugOptions = [.showFeaturePoints, .showAnchorOrigins, .showAnchorGeometry]
+        arView.debugOptions = [.showFeaturePoints]
+        #endif
+        
         return arView
     }
     
